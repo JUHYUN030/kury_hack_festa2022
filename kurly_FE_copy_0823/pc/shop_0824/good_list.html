@@ -1,0 +1,683 @@
+<!DOCTYPE html>                   <!-- list 가격 표시하는 곳에 intcomma 로 변경해야 겠음.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마켓컬리 :: 퍼플 쇼퍼 추천</title>
+    <link rel="stylesheet" href="../main/css/reset.css">
+    <link rel="stylesheet" href="../main/css/common.css">
+    <link rel="stylesheet" href="../main/css/visual.css">
+    <link rel="stylesheet" href="css/good_list.css">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../main/js/common.js"></script>
+    <script src="../main/js/visual.js"></script>
+
+    <script src="js/good_list.js"></script>
+
+    <link rel="shortcut icon" href="../img/kurly_favicon.png">
+    <link rel="icon" href="../img/kurly_favicon.png">
+
+</head>
+
+<body>
+
+<div id="wrap">
+    <div id="top_event" class="login">
+        <div class="inner_top_event login">
+            <a href="#" alt="가입하고 100원 혜택받기" class="top_event_bnr login">
+                <div>
+                    지금 가입하고 인기상품
+                    <strong>100원</strong>에 받아가세요!
+                </div>
+            </a>
+            <button class="top_event_close login" alt="배너 끄기"></button>
+        </div>
+    </div>
+    <!-- id=top_event -->
+
+    <div>
+        <div id="header">
+            <div class="user_menu">
+
+                <ul class="sign_menu">
+                    <li class="link">
+                        <!-- 회원 이름 -->
+                        <a href="#" class="item after join">
+                            <span class="login_grade">라벤더</span>
+                            사용자 님</a>
+                    </li>
+                    <li class="link">
+                        <a href="#" class="item service">고객센터</a>
+                        <!-- 고객센터 hover 시 sub_menu 등장 -->
+                        <ul class="sub_menu">
+                            <li class="list">
+                                <a href="#" class="list_item">공지사항</a>
+                            </li>
+                            <li class="list">
+                                <a href="#" class="list_item">자주하는 질문</a>
+                            </li>
+                            <li class="list">
+                                <a href="#" class="list_item">1:1 문의</a>
+                            </li>
+                            <li class="list">
+                                <a href="#" class="list_item">대량주문 문의</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- .sign_menu -->
+
+            </div>
+            <div class="header_logo">
+
+                <!--로고-->
+                <div class="logo">
+                    <img src="../img/kurly_logo.png" alt="마켓컬리 로고" class="logo_img">
+
+                    <div class="btn_market_beauty">
+                        <a href="../main/main.html">
+                            <button class="btn_market"><b>마켓컬리</b></button>
+                        </a>
+                        <button class="btn_beauty">| &nbsp; 뷰티컬리</button>
+                    </div>
+
+                </div>
+
+                <!--검색창-->
+                <div>
+                    <div>
+                        <div class="gnb_search">
+                            <form action="">
+                                <input type="text" id="keyword" placeholder="검색어를 입력해주세요" title="검색어입력"
+                                       class="inp_search">
+                                <input type="image"
+                                       src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgzNnYzNkgweiIvPgogICAgICAgIDxnIHN0cm9rZT0iIzVGMDA4MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNyI+CiAgICAgICAgICAgIDxwYXRoIGQ9Im0yNi4wODEgMjYuMDgxLTQuMTItNC4xMk0xNi40NjcgMjMuMzM0YTYuODY3IDYuODY3IDAgMSAwIDAtMTMuNzM0IDYuODY3IDYuODY3IDAgMCAwIDAgMTMuNzM0eiIvPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                                       class="btn_search">
+                                <div class="init">
+                                    <button type="button" id="search_init" class="btn_delete">검색어 삭제하기</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location_login">
+                    <!-- 버튼 뒤로 넘기기, 가상요소 선택자로 bg url 아이콘 처리-->
+                    <button type="button" class="btn_location on">배송지 등록</button>
+
+                    <div class="location_notice">
+                        <!-- 첫 홈페이지 화면에 몇 초간 notice 띄우고 자동으로 off -->
+                        <span class="emph">배송지를 등록</span>하고<br>
+                        <span class="txt">구매가능한 상품을 확인하세요!</span>
+                        <div class="group_button">
+                            <button type="button" class="btn login">로그인</button>
+                            <button type="button" class="btn search_address">
+                                <span class="ico"></span>
+                                주소검색
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wish_count">
+                    <!-- bg url 아이콘 추가 -->
+                    <a href="#" class="btn_wish">
+                        <span class="blind">찜하기</span>
+                    </a>
+                </div>
+
+                <div class="cart_count">
+                    <!-- bg url 아이콘 추가 -->
+                    <a href="#" class="btn_cart">
+                        <span class="blind">장바구니</span>
+                    </a>
+                </div>
+            </div>
+            <div class="gnb">
+                <!-- gnb = global nav bar = 최상위 메뉴  -->
+                <h2 class="blind">메뉴</h2>
+                <ul class="gnb_menu">
+                    <li class="list gnb_main">
+                        <a href="#" class="link">
+                            <span class="ico"></span>
+                            <!-- ico는 css에서 bg url로 처리 -->
+                            <span class="txt">카테고리</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#" class="link">
+                            <span class="txt" style="color: #5f0080;">퍼플 쇼퍼</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#" class="link">
+                            <span class="txt">신상품</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#" class="link">
+                            <span class="txt">베스트</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#" class="link">
+                            <span class="txt">알뜰쇼핑</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#" class="link">
+                            <span class="txt">특가/혜택</span>
+                        </a>
+                    </li>
+                    <div>
+                        <a href="#" class="delivery_notice">
+                            <img src="../img/delivery_notice_1.PNG">
+                        </a>
+                    </div>
+                </ul>
+                <!-- id="visual" -->
+
+                <div id="main">
+                    <div class="qnb">
+                        <!-- qnb + quick nav bnr -->
+                        <a href="#" class="link_qnb">
+                            <img src="https://res.kurly.com/_next/static/images/deliveryInfo_20220701-a7b19dac069402e4b2aea7edbed0f6e0.png"
+                                 alt="샛별,낮 배송안내" class="thumb">
+                        </a>
+                        <div class="side_menu">
+                            <a href="#" class="link_menu">등급별 혜택</a>
+                            <a href="#" class="link_menu">레시피</a>
+                            <a href="#" class="link_menu">베스트 후기</a>
+                        </div>
+                    </div>
+
+                    <div id="contents" class="page_aticle">
+                        <div class="top_btn">
+                            <button id="go-top" alt="맨 위로가기"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- id ="header" -->
+
+            <div id="container" class="container">
+                <div>
+                    <div id="content">
+                        <div class="page_aticle">
+                            <div id="goodsList" class="page_section section_goodslist">
+                                <div class="main_type1">
+                                    <!-- type1:  -->
+                                    <div class="product_list">
+                                        <!-- 라이프 스타일 분석 -->
+                                        <div class="customer_segmentation">
+                                            <div class="tit_seg">
+                                                <div class="title_seg">
+                                                    <h2 style="color: #5f0080;">사용자 님의 라이프스타일</h2>
+                                                </div>
+                                                <div class="txt">
+                                                    <p>식품 뿐만 아니라 비식품도 추천해드려요!</p>
+                                                </div>
+
+                                                <div class="analysis_seg">
+                                                    <h2>참외 군집</h2>
+                                                    <p>✔ 구매 횟수는 적지만 구매 전환율이 높음<br>
+                                                       ✔ 오래 전 방문<br>
+                                                       ✔ 다양한 상품을 보는 편</p>
+                                                </div>
+
+                                                <div class="img_seg">
+                                                    <img src="../img/segmentation_2.PNG">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <!-- 상품 추천 -->
+                                        <div class="tit_goods">
+                                            <h3 class="tit">
+                                                <span class="title_name">
+                                                퍼플 쇼퍼 추천
+                                                </span>
+                                                <!-- 아이콘 없는 버전, h3에 링크 없음 -->
+                                            </h3>
+                                        </div>
+
+
+                                        <div class="list_ability">
+                                            <div class="sort_menu">
+                                                <div>
+                                                    <div class="select_type user_sort">
+                                                        <a class="name_select" style="color: #5f0080;">
+                                                            추천순
+                                                        </a>
+                                                        <ul class="list checked">
+                                                            <li>
+                                                                <a class="on">추천순</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class>신상품순</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class>인기상품순</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class>혜택순</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class>낮은 가격순</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class>높은 가격순</a>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <!-- list_goods -->
+                                            <div class="list_goods">
+                                                <div class="inner_listgoods">
+                                                    <ul class="list">
+
+                                                        <li>  <!--리스트 1-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1652794190261l0.jpg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [루메나] FAN PRIME 2+ 무선 써큘레이터 3종
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">49,900</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">작지만 강력한 다용도 선풍기</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 2-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1655454563828l0.jpeg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [헤라] 블랙 쿠션(리필포함) 6종(+미니쿠션21N,5종사은품 증정)
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">56,100</span>
+                                                                            <span class="dodo">원</span>
+
+                                                                        </span>
+
+                                                                    <span class="desc">내 피부 같은 초밀착 커버</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+                                                        <li>  <!--리스트 3-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653036058150l0.jpeg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [광화문 미진] 메밀국수 (2인분)
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">9,900</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">집에서 만나는 메밀 명가</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 4-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037752231l0.jpeg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [탄단지] 가벼운 한식 도시락 6종
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">4,300</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">다채로운 한식메뉴로 즐기는 도시락!</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 5-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1637928375505l0.jpeg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [트라이앵글] 조리용 커터 2종
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">20,300</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">오래도록 녹슬지 않는 정교한 칼날을 경험해보세요</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 6-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1655468516762l0.jpeg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [가히] 링클 바운스 멀티밤
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">29,400</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">작지만 강력한 다용도 선풍기</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 7-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653036358244l0.jpg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [피지오겔] DMT 바디로션 400ml
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">28,900</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">깔끔한 마무리감의 촉촉한 바디로션</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 8-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1653037589193l0.jpeg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            Hallo! 노르웨이 고등어 (3개입)
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">7,980</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">두고 먹기 좋은 기획 세트</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+
+                                                        <li>  <!--리스트 9-->
+                                                            <div class="item">
+                                                                <div class="thumb">
+                                                                    <!-- 상품 이미지 -->
+                                                                    <a class="img"
+                                                                       style="background-image: url(https://res.kurly.com/mobile/img/1808/img_none_x2.png);">
+                                                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=676,format=auto/shop/data/goods/1593671609860l0.jpg"
+                                                                             alt="상품이미지"
+                                                                             width="308" height="396">
+                                                                        <!-- 상품 이미지 임시값. src는 데이터로 받아오기 -->
+                                                                    </a>
+
+                                                                    <!-- cart 버튼 -->
+                                                                    <div class="group_btn">
+                                                                        <button type="button" name="chk"
+                                                                                value="prod_id" class="btn btn_cart">
+                                                                            <span class="screen_out">38300</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- 상품 정보 -->
+                                                                <a class="info">
+                                                                        <span class="name">
+                                                                            [라쿠진] 무선 청소기 3종
+                                                                        </span>
+                                                                    <span class="cost">
+                                                                            <span class="price">59,900</span>
+                                                                            <span class="dodo">원</span>
+                                                                        </span>
+
+                                                                    <span class="desc">가볍고 심플한 무선 청소기</span>
+                                                                    <span class="tag"></span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="layout-pagination">
+                                                <div class="pagediv">
+                                                    <a href="#main"
+                                                       class="layout-pagination-button layout-pagination-first-page">맨
+                                                        처음 페이지로
+                                                        가기</a>
+                                                    <a href="#main"
+                                                       class="layout-pagination-button layout-pagination-prev-page">이전
+                                                        페이지로
+                                                        가기</a>
+                                                    <a href="#">
+                                        <span>
+                                            <strong class="layout-pagination-button layout-pagination-number __active">1</strong>
+                                        </span>
+                                                    </a>
+
+                                                    <span>
+                                        <strong class="layout-pagination-button layout-pagination-number">2</strong>
+                                    </span>
+                                                    <span>
+                                        <strong class="layout-pagination-button layout-pagination-number">3</strong>
+                                    </span>
+                                                    <span>
+                                        <strong class="layout-pagination-button layout-pagination-number">4</strong>
+                                    </span>
+                                                    <span>
+                                        <strong class="layout-pagination-button layout-pagination-number">5</strong>
+                                    </span>
+                                                    <a href="#main"
+                                                       class="layout-pagination-button layout-pagination-next-page">다음
+                                                        페이지로
+                                                        가기</a>
+                                                    <a href="#main"
+                                                       class="layout-pagination-button layout-pagination-last-page">맨 끝
+                                                        페이지로
+                                                        가기</a>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>
